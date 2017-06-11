@@ -2,10 +2,13 @@ defmodule Peepchat.Router do
   use Peepchat.Web, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "json-api"]
   end
 
   scope "/api", Peepchat do
     pipe_through :api
+
+    # resources is basically a way of setting up multiple routes
+    resources "/session", SessionController, only: [:index]
   end
 end
