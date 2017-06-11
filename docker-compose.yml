@@ -1,0 +1,17 @@
+postgres:
+    restart: always
+    image: postgres:latest
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: peepchat_dev
+    volumes_from:
+        - data
+    ports:
+        - 5432:5432
+
+data:
+    image: cogniteev/echo
+    command: echo 'Data Container for PostgreSQL'
+    volumes:
+        - /var/lib/postgresql/data
