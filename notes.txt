@@ -1,0 +1,5 @@
+heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+mix phoenix.gen.secret // gen secret used in prod
+heroku config:set SECRET_KEY_BASE={KEY}
+heroku addons:create heroku-postgresql:hobby-dev
+heroku config
