@@ -5,4 +5,8 @@ heroku addons:create heroku-postgresql:hobby-dev
 heroku config
 
 NOTE: With travis ci setup, everytime we push to master to github, travis ci will run test
-and push the changes up to heroku. Hence we can remove remote heroku repo's
+and push the changes up to heroku. Hence we can remove remote heroku repo's. However, it's
+better not to remove it since heroku depends on having it as a way to associate with specified app
+
+mix do ecto.create, ecto.migrate
+MIX_ENV=test mix do ecto.create, ecto.migrate -> does same thing for local test database (seperate docker command?)
